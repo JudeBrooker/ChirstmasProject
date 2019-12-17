@@ -21,7 +21,7 @@ function resetLabels() {
 function showGateImage(gate, label){
     resetImages();
     resetLabels();
-    document.getElementById(gate).style.display = "block";
+    document.getElementById(gate).style.display = "inline";
     document.getElementById(label).style.color = "red";
     if(gate==="NOTGate"){
         document.getElementById("inputB").style.display = "none";

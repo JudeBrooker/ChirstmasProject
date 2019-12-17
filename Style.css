@@ -1,7 +1,15 @@
 .images{
-    width: 50%;
+    height: 100px;
+    width: 150px;
+    border: thick solid red;
 }
 
+body{
+    background-color: aquamarine;
+}
+input{
+    display: inline;
+}
 table, th, td{
     border: 1px solid black;
     border-collapse: collapse;
