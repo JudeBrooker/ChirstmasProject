@@ -1,16 +1,71 @@
-.images{
-    height: 100px;
-    width: 150px;
-    border: thick solid red;
-}
-
 body{
-    background-color: aquamarine;
+    background-color: #70C1B3;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 input{
     display: inline;
 }
-table, th, td{
-    border: 1px solid black;
+
+table{
     border-collapse: collapse;
+}
+
+td, th{
+    border: 2px solid #454545;
+}
+
+label{
+    font-size: 20px;
+}
+
+/*Image size and border*/
+.images{
+    height: 100px;
+    width: 150px;
+    border: thick solid #454545;
+}
+
+.selectGate{
+    font-size: 20px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/*Custom Button*/
+.button1{
+    background-color: #247BA0;
+    border: 2px solid #454545;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.button1:hover{
+    background-color: #454545;
+    color: white;
+    border: 2px solid #247BA0;
+}
+
+.mainText{
+    font-size: 20px;
+}
+
+/*Custom drop down menus*/
+.userInputs{
+    font-size: 20px;
+    padding: 2px;
+    margin: 2px;
+}
+
+/*Custom radio buttons*/
+.radioButtons{
+    height: 15px;
+    width: 15px;
 }

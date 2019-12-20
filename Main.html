@@ -7,59 +7,67 @@
     <script src="Script.js"></script>
 </head>
 <body>
-
 <h1>Logic Gate Calculator</h1>
-<h2>Logic Gate:</h2>
+
+<!--Logic gate selection-->
 <div style="display: inline-block">
     <form>
-        <input type="radio" id="r1" value="ANDGate" name="gate" onchange="showGateImage(this.value, 'r1label')"> <label for="r1" id="r1label">AND Gate </label> <br>
-        <input type="radio" id="r2" value="ORGate" name="gate" onchange="showGateImage(this.value, 'r2label')"> <label for="r2" id="r2label">OR Gate </label> <br>
-        <input type="radio" id="r3" value="NOTGate" name="gate" onchange="showGateImage(this.value, 'r3label')"> <label for="r3" id="r3label">NOT Gate </label> <br>
-        <input type="radio" id="r4" value="NANDGate" name="gate" onchange="showGateImage(this.value, 'r4label')"> <label for="r4" id="r4label">NAND Gate </label> <br>
-        <input type="radio" id="r5" value="NORGate" name="gate" onchange="showGateImage(this.value, 'r5label')"> <label for="r5" id="r5label">NOR Gate </label> <br>
-        <input type="radio" id="r6" value="XORGate" name="gate" onchange="showGateImage(this.value, 'r6label')"> <label for="r6" id="r6label">XOR Gate </label>
+        <input class="radioButtons" type="radio" id="r1" value="ANDGate" name="gate" onchange="showGateImage(this.value, 'r1label')"> <label for="r1" class="selectGate" id="r1label">AND Gate </label> <br>
+        <input class="radioButtons" type="radio" id="r2" value="ORGate" name="gate" onchange="showGateImage(this.value, 'r2label')"> <label for="r2" class="selectGate" id="r2label">OR Gate </label> <br>
+        <input class="radioButtons" type="radio" id="r3" value="NOTGate" name="gate" onchange="showGateImage(this.value, 'r3label')"> <label for="r3" class="selectGate" id="r3label">NOT Gate </label> <br>
+        <input class="radioButtons" type="radio" id="r4" value="NANDGate" name="gate" onchange="showGateImage(this.value, 'r4label')"> <label for="r4" class="selectGate" id="r4label">NAND Gate </label> <br>
+        <input class="radioButtons" type="radio" id="r5" value="NORGate" name="gate" onchange="showGateImage(this.value, 'r5label')"> <label for="r5" class="selectGate" id="r5label">NOR Gate </label> <br>
+        <input class="radioButtons" type="radio" id="r6" value="XORGate" name="gate" onchange="showGateImage(this.value, 'r6label')"> <label for="r6" class="selectGate" id="r6label">XOR Gate </label>
     </form>
 </div>
+
+<!--Images of logic gates-->
 <div style="display: inline-block">
-<img class="images" id="ANDGate" src="ANDGate.png" alt="AND Gate" style="display: none">
-<img class="images" id="ORGate" src="ORGate3.png" alt="AND Gate" style="display: none">
-<img class="images" id="NOTGate" src="NOTGate.png" alt="AND Gate" style="display: none">
-<img class="images" id="NANDGate" src="NANDGate.png" alt="AND Gate" style="display: none">
-<img class="images" id="NORGate" src="NORGate.png" alt="AND Gate" style="display: none">
-<img class="images" id="XORGate" src="XORGate.png" alt="AND Gate" style="display: none">
+    <img class="images" id="ANDGate" src="ANDGate.png" alt="AND Gate" style="display: none">
+    <img class="images" id="ORGate" src="ORGate3.png" alt="AND Gate" style="display: none">
+    <img class="images" id="NOTGate" src="NOTGate.png" alt="AND Gate" style="display: none">
+    <img class="images" id="NANDGate" src="NANDGate.png" alt="AND Gate" style="display: none">
+    <img class="images" id="NORGate" src="NORGate.png" alt="AND Gate" style="display: none">
+    <img class="images" id="XORGate" src="XORGate.png" alt="AND Gate" style="display: none">
 </div>
 <br>
-<div style="display: inline-block">
-<label for="inputA">Input A:</label>
-<select name="dropDown" id="inputA">
-    <option value="0">0</option>
-    <option value="1">1</option>
-</select> <br>
-<label for="inputB" id="inputBLabel">Input B:</label>
-<select name="dropDown" id="inputB">
-    <option value="0">0</option>
-    <option value="1">1</option>
-</select> <br>
-<button name="button" id="calculateButton" onclick="calculate()">Calculate</button>
-<p id="output">Output:</p>
 
-<table id="outputTable" style="display: none">
-    <tr>
-        <th>Input A</th>
-        <th>Input B</th>
-        <th>Output</th>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
+<!--Inputs/Output-->
+<div style="display: inline-block">
+<!--    Inputs A and B-->
+    <label for="inputA">Input A:</label>
+    <select class="userInputs" name="dropDown" id="inputA">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <br>
+    <label for="inputB" id="inputBLabel">Input B:</label>
+    <select class="userInputs" name="dropDown" id="inputB">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <br>
+<!--    Calculate button-->
+    <button class="button1" id="calculateButton" onclick="calculate()">Calculate</button>
+    <p class="mainText" id="output">Output:</p>
+<!--    Truth table for output-->
+    <table id="outputTable" style="display: none">
+        <tr>
+            <th>Input A</th>
+            <th>Input B</th>
+            <th>Output</th>
+        </tr>
+        <tr id="outputRow">
+        </tr>
+    </table>
+    <table id="NOTOutputTable" style="display: none">
+        <tr>
+            <th>Input A</th>
+            <th>Output</th>
+        </tr>
+        <tr id="NOTOutputRow">
+        </tr>
+    </table>
 </div>
 </body>
 </html>

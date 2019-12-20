@@ -1,3 +1,4 @@
+//Hides logic gate images
 function resetImages() {
     document.getElementById("ANDGate").style.display = "none";
     document.getElementById("ORGate").style.display = "none";
@@ -9,6 +10,7 @@ function resetImages() {
     document.getElementById("inputBLabel").style.display = "inline";
 }
 
+//Changes logic gate selection labels to black
 function resetLabels() {
     document.getElementById("r1label").style.color = "black";
     document.getElementById("r2label").style.color = "black";
@@ -18,66 +20,80 @@ function resetLabels() {
     document.getElementById("r6label").style.color = "black";
 }
 
+//Shows image corresponding to gate selected
 function showGateImage(gate, label){
     resetImages();
     resetLabels();
     document.getElementById(gate).style.display = "inline";
-    document.getElementById(label).style.color = "red";
+    document.getElementById(label).style.color = "#B2DBBF";
     if(gate==="NOTGate"){
         document.getElementById("inputB").style.display = "none";
         document.getElementById("inputBLabel").style.display = "none";
     }
 }
 
+//Calculates the output depending on inputs and logic gate selection
 function calculate() {
     let inputA = document.getElementById('inputA').value;
     let inputB = document.getElementById('inputB').value;
     let gate = gateType();
-    let output = "Output:";
+    let output = "Output:<span class='mainText' style='color: #247BA0'>";
+    let result;
     if(gate==="null"){
         alert("Please select a logic gate");
         return;
     } else if(gate==="and"){
         if(inputA==="1" && inputB==="1"){
-            output += "1";
+            result = "1";
         } else{
-            output += "0"
+            result = "0"
         }
     } else if(gate==="or"){
         if(inputA==="1" || inputB==="1"){
-            output += "1";
+            result = "1";
         } else{
-            output += "0"
+            result = "0"
         }
     } else if(gate==="not"){
         if(inputA==="0"){
-            output += "1";
+            result = "1";
         } else{
-            output += "0"
+            result = "0"
         }
     } else if(gate==="nand"){
         if(inputA==="1" && inputB==="1"){
-            output += "0";
+            result = "0";
         } else{
-            output += "1"
+            result = "1"
         }
     } else if(gate==="nor"){
         if(inputA==="1" || inputB==="1"){
-            output += "0";
+            result = "0";
         } else{
-            output += "1"
+            result = "1"
         }
     } else if(gate==="xor"){
         if((inputA==="1" && inputB==="0") || (inputA==="0" && inputB==="1")){
-            output += "1";
+            result = "1";
         } else{
-            output += "0"
+            result = "0"
         }
     }
+    //Fills out truth table for inputs and output
+    output += result + "</span>";
     document.getElementById("output").innerHTML = output;
-    document.getElementById("outputTable").style.display = "block";
+    if(gate==="not"){
+        document.getElementById('NOTOutputRow').innerHTML = "<td>"+inputA+"<td>"+result;
+        document.getElementById('NOTOutputTable').style.display = "block";
+        document.getElementById("outputTable").style.display = "none";
+    }else{
+        document.getElementById('outputRow').innerHTML = "<td>"+inputA+"<td>"+inputB+"<td>"+result;
+        document.getElementById("outputTable").style.display = "block";
+        document.getElementById('NOTOutputTable').style.display = "none";
+    }
 }
 
+//Retrieves which logic gate has been selected
 function gateType(){
     let gate = "null";
     if(document.getElementById('r1').checked){
